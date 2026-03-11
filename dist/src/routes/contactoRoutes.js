@@ -1,22 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
+const contactoControler_1 = require("../controllers/contactoControler");
 const contactoRouter = (0, express_1.Router)();
-contactoRouter.get('/', (req, res) => {
-    res.send('devuelve lista de contactos');
-});
-contactoRouter.get('/:id', (req, res) => {
-    res.send(`Devuelve un contacto ${req.params.id}`);
-});
-contactoRouter.post('/', (req, res) => {
-    res.send(`Crea nuevo contacto con ID: ${req.body.id}`);
-});
-contactoRouter.patch('/:id', (req, res) => {
-    res.send(`Actualiza datos del contacto ${req.params.id} con los valores: 
-${req.body.idEmpresa}, ${req.body.tipo} and ${req.body.contacto}`);
-});
-contactoRouter.delete('/', (req, res) => {
-    res.send(`Deleting the product ${req.body.id}`);
-});
+contactoRouter.get('/', contactoControler_1.getAllContactos);
+contactoRouter.get('/:id', contactoControler_1.getContactosById);
+contactoRouter.post('/', contactoControler_1.createContacto);
+contactoRouter.patch('/:id', contactoControler_1.modifyContacto);
+contactoRouter.delete('/:id', contactoControler_1.deleteContacto);
 exports.default = contactoRouter;
 //# sourceMappingURL=contactoRoutes.js.map

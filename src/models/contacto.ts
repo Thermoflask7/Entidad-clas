@@ -5,7 +5,7 @@ import {Optional} from 'sequelize';
 
 interface contactoAttributes{ 
   id: number; 
-  idEmpresa: number;
+  idempresa: number;
   tipo: string;
   contacto: string;
 } 

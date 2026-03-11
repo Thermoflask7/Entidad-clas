@@ -15,12 +15,12 @@ res.send(`Crea nuevo contacto con ID: ${req.body.id}`)
 });  
 
 contactoRouter.patch('/:id', (req:Request, res:Response) => {  
-res.send(`Actualiza datos del contacto ${req.params.id} con los valores: ${req.body.idEmpresa}, ${req.body.tipo} and ${req.body.contacto}`)  
+res.send(`Actualiza datos del contacto ${req.params.id} con los valores: 
+${req.body.idEmpresa}, ${req.body.tipo} and ${req.body.contacto}`)  
 });  
 
 contactoRouter.delete('/', (req:Request, res:Response) => {  
 res.send(`Deleting the product ${req.body.id}`)  
 });  
 
-export default contactoRouter; 
-
+export default contactoRouter;

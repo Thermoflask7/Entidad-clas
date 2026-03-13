@@ -1,6 +1,7 @@
 
-import {Table, Model, Column, CreatedAt, UpdatedAt, DataType} from 'sequelize-typescript'; 
+import {Table, Model, Column, CreatedAt, UpdatedAt, DataType, HasMany} from 'sequelize-typescript'; 
 import {Optional} from 'sequelize'; 
+import { contacto } from './contacto';
 
 
 interface empresaAttributes{ 
@@ -20,6 +21,9 @@ export class empresa extends Model<empresaAttributes,empresaCreationAttributes>{
 
     @Column
     descripcion!: string;
+
+    @HasMany(() => contacto)
+    contactos!: contacto[];
 
    @CreatedAt 
    @Column 

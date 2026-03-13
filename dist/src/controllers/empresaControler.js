@@ -22,8 +22,8 @@ const createEmpresa = (req, res) => {
         });
     }
     // Save empresa in the database 
-    const empresa = Object.assign({}, req.body);
-    empresa.create(empresa)
+    const newEmpresa = Object.assign({}, req.body);
+    empresa_1.empresa.create(newEmpresa)
         .then((data) => {
         res.status(200).json({
             status: "success",

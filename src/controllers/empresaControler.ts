@@ -14,8 +14,8 @@ export const createEmpresa: RequestHandler = (req: Request, res: Response) => {
     }); 
   } 
 // Save empresa in the database 
-  const empresa = { ...req.body }; 
-  empresa.create(empresa) 
+  const newEmpresa = { ...req.body }; 
+  empresa.create(newEmpresa) 
     .then((data: empresa | null) => { 
       res.status(200).json({ 
         status: "success", 

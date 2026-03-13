@@ -7,6 +7,6 @@ empresaRouter.get('/', empresaControler_1.getAllEmpresas);
 empresaRouter.get('/:id', empresaControler_1.getEmpresasById);
 empresaRouter.post('/', empresaControler_1.createEmpresa);
 empresaRouter.patch('/:id', empresaControler_1.modifyEmpresa);
-empresaRouter.delete('/:id', deleteEmpresa);
+empresaRouter.delete('/:id', empresaControler_1.deleteEmpresa);
 exports.default = empresaRouter;
 //# sourceMappingURL=empresaRoutes.js.map

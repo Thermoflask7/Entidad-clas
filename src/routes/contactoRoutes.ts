@@ -1,26 +1,18 @@
 
-import { Router, Request, Response } from 'express';  
+import { Router } from 'express';
+import { createContacto,
+    deleteContacto,
+    getAllContactos,
+    getContactosById,
+    modifyContacto
+ } from '../controllers/contactoControler'; 
+
 const contactoRouter:Router = Router();  
 
-contactoRouter.get('/', (req:Request, res:Response) => {  
-res.send('devuelve lista de contactos')  
-});  
+contactoRouter.get('/', getAllContactos);
+contactoRouter.get('/:id', getContactosById);
+contactoRouter.post('/', createContacto);
+contactoRouter.patch('/:id', modifyContacto);
+contactoRouter.delete('/:id', deleteContacto);
 
-contactoRouter.get('/:id', (req:Request, res:Response) => {  
-res.send(`Devuelve un contacto ${req.params.id}`)  
-});  
-
-contactoRouter.post('/', (req:Request, res:Response) => {  
-res.send(`Crea nuevo contacto con ID: ${req.body.id}`)  
-});  
-
-contactoRouter.patch('/:id', (req:Request, res:Response) => {  
-res.send(`Actualiza datos del contacto ${req.params.id} con los valores: ${req.body.idEmpresa}, ${req.body.tipo} and ${req.body.contacto}`)  
-});  
-
-contactoRouter.delete('/', (req:Request, res:Response) => {  
-res.send(`Deleting the product ${req.body.id}`)  
-});  
-
-export default contactoRouter; 
-
+export default contactoRouter;

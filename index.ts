@@ -1,22 +1,17 @@
+import express, { Express } from "express"; 
+import apiRouter from './src/routes'; 
+import connectionDB from './src/connection/connection'; 
+const morgan = require('morgan'); 
 
-import express, {Express, Request, Response} from 'express'; 
-import morgan from 'morgan';
-import contactoRouter from './src/routes'; 
+const app: Express = express();
+const port = 3000;
 
-const app:Express = express();
-const port = 3000
-
-app.use(morgan('dev')) 
+app.use(morgan('dev'));
 app.use(express.json());
-app.get('/', (rreq:Request, res:Response) => { 
-    res.send('Hello World!') 
-}) 
-app.get('/contactos', (req:Request, res:Response) => { 
-    res.send('contactos!!!!') 
-}) 
-app.get('/contactos/:id', (req:Request, res:Response) => { 
-    res.send(req.params.id) 
-}) 
-app.listen(port, () => { 
-    console.log(`Example app listening on port ${port}`) 
-})
+app.use(apiRouter);
+
+connectionDB();
+
+app.listen(port, () =>{
+  console.log(`app listening on port ${port}`);
+});
